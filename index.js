@@ -18,6 +18,10 @@ app.use("/cart", CartController);
 app.use("/favourite", FavouriteController);
 const PORT = 8080 || process.env.PORT;
 
+app.get("/", (req, res) => {
+  res.send({ msg: "welcome to sephora.com" });
+});
+
 app.listen(PORT, async () => {
   try {
     await connection;
