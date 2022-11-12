@@ -13,14 +13,13 @@ const { FavouriteController } = require("./routes/favourite.route");
 app.use("/user", UserController);
 app.use("/makeup", MakeupController);
 app.use("/cart", CartController);
+app.get("/", (req, res) => {
+  res.send({ msg: "welcome to sephora.com" });
+});
 app.use(authorization);
 
 app.use("/favourite", FavouriteController);
 const PORT = 8080 || process.env.PORT;
-
-app.get("/", (req, res) => {
-  res.send({ msg: "welcome to sephora.com" });
-});
 
 app.listen(PORT, async () => {
   try {
